@@ -6,3 +6,5 @@
 /*.txt
 
 /go.sum
+
+!/sample.png
