@@ -1,0 +1,8 @@
+/.vscode/
+/raytracer
+
+/*.ppm
+/*.png
+/*.txt
+
+/go.sum
