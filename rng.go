@@ -58,13 +58,10 @@ func (rng *RandomNumberGenerator) RandomVec3Range(min float64, max float64) Vec3
 func (rng *RandomNumberGenerator) RandomVec3InUnitSphere() Vec3 {
 	for {
 		var p = rng.RandomVec3Range(-1, 1)
-		if p.LengthSquared() < 1 {
-			return Vec3{
-				rng.RandomDouble(),
-				rng.RandomDouble(),
-				rng.RandomDouble(),
-			}
+		if p.LengthSquared() >= 1 {
+			continue
 		}
+		return p
 	}
 }
 
@@ -79,12 +76,9 @@ func (rng *RandomNumberGenerator) RandomVec3InUnitDisk() Vec3 {
 			rng.RandomDoubleRange(-1, 1),
 			0,
 		}
-		if p.LengthSquared() < 1 {
-			return Vec3{
-				rng.RandomDouble(),
-				rng.RandomDouble(),
-				rng.RandomDouble(),
-			}
+		if p.LengthSquared() >= 1 {
+			continue
 		}
+		return p
 	}
 }
