@@ -28,8 +28,10 @@ func (rng *RandomNumberGenerator) Next() uint64 {
 }
 
 func (rng *RandomNumberGenerator) RandomDouble() float64 {
+	// use this version if you want actual PRNG
 	// return rng.gen.Float64()
 
+	// use this version if you want repeatable sequence of numbers
 	t1 := rng.Next()
 	t2 := rng.Next()
 	return float64(t1*rng.mod+t2) / float64(rng.mod) / float64(rng.mod)
